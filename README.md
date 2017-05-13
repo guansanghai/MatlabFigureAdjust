@@ -18,9 +18,9 @@ Adjust the tick labels.
 
 ## figline.m
 
-调整当前绘图中所有曲线线条粗细及数据点类型和大小。
+调整当前绘图中所有曲线颜色，线条粗细及数据点类型和大小。
 
-Adjust the line width, line style, marker and markersize of all the lines in the figure in one step.
+Adjust the color, line width, line style, marker and markersize of all the lines in the figure in one step.
 
 ## figsize.m
 
