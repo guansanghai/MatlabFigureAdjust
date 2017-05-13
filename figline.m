@@ -19,9 +19,9 @@ function [ ] = figline( LineWidth, MarkerSize, Style)
 %   FIGLINE(2, [], '-') Set the LineWidth as 2 and LineStyle as solid line.
 %   FIGLINE(2, 0) Set the LineWidth as 2 and hide markers.
 %   FIGLINE(0, 6, '.') Hide the line and set MarkerSize as 6.
-%   FIGLINE('--os') Keep the LineWidth and MarkerSize, and set the two (or
-%   more) lines' marker as circle and square separately. You can also use
-%   FIGLINE([], [], '--os').
+%   FIGLINE('--os') Keep the LineWidth and MarkerSize, set the LineStyle as
+%   dashed, and set the two (or more) lines' marker as circle and square 
+%   separately. You can also use FIGLINE([], [], '--os').
 %
 %   线形 (LineStyle): '-' | '--' | ':' 
 %   数据点形状 (Marker): '+' | 'o' | '*' | '.' | 'x' | 's' | 'd' | '^' | 'v' |'<' | '>' | 'p' | 'h'
