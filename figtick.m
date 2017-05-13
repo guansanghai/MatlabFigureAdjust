@@ -1,17 +1,32 @@
 function [ ] = figtick( varargin )
 %FIGTICK 调整当前绘图窗口中坐标轴刻度。
+%        Adjust the axis tick label.
+%
 %   FIGTICK() 自动调整 x,y,z 坐标轴，补齐小数点后位数。
+%   FIGTICK() Adjust x,y,z axis tick labels automatically, fill in zeros
+%   after the decimal point to make the tick labels aligned.
 %
-%   FIGTICK(Axis) 自动调整指定坐标轴，补齐小数点后位数。例如，figtick('xy')。
+%   FIGTICK(Axis) 自动调整指定坐标轴，补齐小数点后位数。例如，FIGTICK('xy')。
+%   FIGTICK(Axis) Adjust tick labels on your input axises, fill in zeros 
+%   after the decimal point.
 %
-%   FIGTICK(Axis,n) 手动调整指定坐标轴，补齐到小数点后 n 位。例如，figtick('x',2) 
+%   FIGTICK(Axis,n) 手动调整指定坐标轴，保留小数点后 n 位。例如，FIGTICK('x',2) 
 %   或 FIGTICK('yz',1) 等。
-% 
+%   FIGTICK(Axis,n) Adjust tick labels on your input axises manually,
+%   accurate to the n-th(your input) decimal place. Such as FIGTICK('x',2)
+%   and FIGTICK('yz',1).
+%
 %   FIGTICK(Axis,TickLabel) 手动设置指定坐标轴刻度。
 %   例如，FIGTICK('z',{'0','1.0','2.0'}) 可将 z 坐标轴刻度改为 0 ,1.0, 2.0。
+%   FIGTICK(Axis,TickLabel) Set the tick labels manually. For example,
+%   FIGTICK('z',{'0','1.0','2.0'}) sets the z axis tick label as 0 ,1.0,
+%   2.0.
 %
 %   FIGTICK(Axis,OldLabel,NewLabel) 手动替换指定坐标轴内容。
 %   例如，FIGTICK('y','0','0.00') 可将 y 轴 0 刻度改为 0.00。
+%   FIGTICK(Axis,OldLabel,NewLabel) replace a tick label to your input.
+%   For example, FIGTICK('y','0','0.00') changes '0' tick on your y axis to
+%   '0.00'.
 %
 %   例：
 %         x = -pi/2:pi/20:pi/2;
