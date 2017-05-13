@@ -29,12 +29,8 @@ function [ ] = figfont( varargin )
 %
 
 DefaultFont = 'Times';
-grid on;
-box on;
 
 if nargin == 0
-    LabelFontSize = get(get(gca,'XLabel'),'FontSize');
-    LegendFontSize = get(get(gca,'Legend'),'FontSize');
     LabelFontName = DefaultFont;
     LegendFontName = DefaultFont;
 elseif nargin == 1
@@ -61,12 +57,10 @@ else
     error('Too many inputs');
 end
 
-if sum((get(get(gca,'Xlabel'),'String') == '$')) >= 2
-    set(get(gca,'XLabel'),'Interpreter','latex');
-end
-
-if sum((get(get(gca,'Ylabel'),'String') == '$')) >= 2
-    set(get(gca,'YLabel'),'Interpreter','latex');
+for axis = 'xyz'
+    if sum((get(get(gca,[axis 'label']),'String') == '$')) >= 2
+        set(get(gca,[axis 'Label']),'Interpreter','latex');
+    end
 end
 
 s = get(get(gca,'Legend'),'String');
@@ -76,12 +70,20 @@ for ii = 1:length(s)
     end
 end
 
-set(get(gca,'XLabel'),'FontSize',LabelFontSize);
+
+if nargin ~= 0
+    set(get(gca,'XLabel'),'FontSize',LabelFontSize);
+    set(get(gca,'YLabel'),'FontSize',LabelFontSize);
+    set(get(gca,'ZLabel'),'FontSize',LabelFontSize);
+    set(get(gca,'Legend'),'FontSize',LegendFontSize);
+end
+
+
 set(get(gca,'XLabel'),'FontName',LabelFontName);
-set(get(gca,'YLabel'),'FontSize',LabelFontSize);
 set(get(gca,'YLabel'),'FontName',LabelFontName);
-set(get(gca,'Legend'),'FontSize',LegendFontSize);
+set(get(gca,'ZLabel'),'FontName',LabelFontName);
 set(get(gca,'Legend'),'FontName',LegendFontName);
+
 
 end
 
