@@ -1,14 +1,23 @@
 function [ ] = figsize( Width,Height,Metric )
 %FIGSIZE 调整当前绘图大小。
+%        Adjust the size of figure in 'cm' or 'in'
+%
 %   注意：使用此函数在 m 文件中需要设置默认参数。
+%   WARNING:You need to define your screen size and default unit (cm or in)
+%   in the function file.
 %   
 %   FIGSIZE() 根据默认参数调整图片大小。
+%   FIGSIZE() Resize the figure as your preference.
 %
 %   FIGSIZE(Width) 根据默认单位调整图片宽度，宽高比保持不变。
+%   FIGSIZE(Width) Adjust the width (in your default unit) and keep the
+%   aspect ratio.
 %
 %   FIGSIZE(Width,Height) 根据默认单位调整图片宽度和高度。
+%   FIGSIZE(Width,Height) Adjust the width and height in your default unit.
 %
 %   FIGSIZE(Width,Height,Metric) 根据指定参数调整图片。
+%   FIGSIZE(Width,Height,Metric) Resize the figure as your input.
 %
 %   例：
 %         x = -pi:pi/10:pi;
@@ -19,11 +28,14 @@ function [ ] = figsize( Width,Height,Metric )
 
 % ---------------------------
 % 设置屏幕大小(对角线长度)（英寸）
+% Screen Size(diagonal) (in inches)
 Screen = 13.3;
 % 设置默认单位（in/cm）
+% default unit (in/cm)
 DefaultMetric = 'in';
 % 设置默认图片宽度（单位为默认单位）
-DefaultWidth = 3.5; % 3.5in = IEEEtran 单栏宽度
+% default width（in default unit above）
+DefaultWidth = 3.5; % IEEEtran single column
 % ---------------------------
 
 fprintf('Current Setting:\n');
