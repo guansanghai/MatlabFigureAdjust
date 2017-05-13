@@ -23,8 +23,14 @@ function [ ] = figline( LineWidth, MarkerSize, Style)
 %   more) lines' color as blue and red, marker as circle and square 
 %   separately. You can also use FIGLINE([], [], '--bros').
 %
+%   注意：添加适当间隔以避免歧义。例如，使用'.-'或'- .'，而不是'-.'(点划线)，以产生点状数
+%   据点'.'和直线'-'。同样需要注意的还有'--'(虚线)。
+%   WARNING: Add proper spaces to avoid ambiguity. For example, use '.-'
+%   or '- .', other than '-.'(dash-dotted line), to set dotted Marker '.'
+%   and solid line '-'. The same to '--'(dashed line).
+%
 %   颜色 (Color): 'y' | 'm' | 'c' | 'r' | 'g' | 'b' | 'w' | 'k'
-%   线形 (LineStyle): '-' | '--' | ':' 
+%   线形 (LineStyle): '-' | '--' | ':' | '-.'
 %   数据点形状 (Marker): '+' | 'o' | '*' | '.' | 'x' | 's' | 'd' | '^' | 'v' |'<' | '>' | 'p' | 'h'
 %
 %   例：
@@ -52,12 +58,18 @@ end
 if ~isempty(Style) && ~isa(Style,'char')
     error('The Style is invalid');
 end
-if ~prod(ismember(Style,'ymcrgbwk-:+o*.xsd^v<>ph'))
+
+if ~prod(ismember(Style,' ymcrgbwk-:+o*.xsd^v<>ph'))
     error('The Style should be y m c r g b w k - -- : + o * . x s d ^ v < > p h');
 end
 
+if ~isempty(Style)
+    Style = strrep(Style,'--','=');
+    Style = strrep(Style,'-.',';');
+end
+
 Color = Style(ismember(Style,'ymcrgbwk'));
-LineStyle = Style(ismember(Style,'-:'));
+LineStyle = Style(ismember(Style,'-=:;'));
 Marker = Style(ismember(Style,'+o*.xsd^v<>ph'));
 
 g = get(gca,'children');
@@ -68,9 +80,19 @@ for temp = g
     end
 end
 
-if strcmp(LineStyle,'-') || strcmp(LineStyle,'--') || strcmp(LineStyle,':')
+if ~isempty(LineStyle)
+    LineStyleTable = repmat(LineStyle,1,ceil(length(h)/length(LineStyle)));
     for ii = 1:length(h)
-        set(h(ii),'LineStyle',LineStyle);
+        switch LineStyleTable(ii)
+            case '-'
+                set(h(ii),'LineStyle','-');
+            case '='
+                set(h(ii),'LineStyle','--');
+            case ':'
+                set(h(ii),'LineStyle',':');
+            case ';'
+                set(h(ii),'LineStyle','-.');
+        end            
     end 
 end
 
@@ -123,4 +145,5 @@ if ~isempty(MarkerSize)
 end
 
 end
+
 
