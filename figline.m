@@ -1,7 +1,12 @@
 function [ ] = figline( LineWidth, MarkerSize, Style)
 %FIGLINE 调整当前绘图中所有曲线线条粗细及数据点类型和大小。
+%        Adjust the LineWidth, LineStyle, MarkerSize and Marker of all the 
+%        lines in one step. 
+%
 %   FIGLINE(LineWidth, MarkerSize, Style) 一次设置绘图中全部曲线，
 %   保持不变则使用 [] 缺省。
+%   FIGLINE(LineWidth, MarkerSize, Style) Adjust the styles of all the 
+%   lines in one step, and jump the parameter constant with '[]'.
 %
 %   例如，FIGLINE(2) 将线宽设置为 2
 %   FIGLINE(2, [], '-') 将线宽设置为 2，线形为直线。
@@ -10,8 +15,16 @@ function [ ] = figline( LineWidth, MarkerSize, Style)
 %   FIGLINE('--os') 线宽和数据点大小保持不变，线形设置为虚线，
 %   数据点形状分别设置为圆和方块，等效于 FIGLINE([], [], '--os')。
 %
-%   线形      : '-' | '--' | ':'
-%   数据点形状 : '+' | 'o' | '*' | '.' | 'x' | 's' | 'd' | '^' | 'v' | '<' | '>' | 'p' | 'h'
+%   For example, FIGLINE(2) set the LineWidth of all the lines as 2.
+%   FIGLINE(2, [], '-') Set the LineWidth as 2 and LineStyle as solid line.
+%   FIGLINE(2, 0) Set the LineWidth as 2 and hide markers.
+%   FIGLINE(0, 6, '.') Hide the line and set MarkerSize as 6.
+%   FIGLINE('--os') Keep the LineWidth and MarkerSize, and set the two (or
+%   more) lines' marker as circle and square separately. You can also use
+%   FIGLINE([], [], '--os').
+%
+%   线形 (LineStyle): '-' | '--' | ':' 
+%   数据点形状 (Marker): '+' | 'o' | '*' | '.' | 'x' | 's' | 'd' | '^' | 'v' |'<' | '>' | 'p' | 'h'
 %
 %   例：
 %         x = -pi:pi/20:pi;
