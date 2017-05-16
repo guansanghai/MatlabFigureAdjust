@@ -14,10 +14,10 @@ function [ ] = figlegend( varargin )
 %   selecting the items you want to show in the legend and hide others. For
 %   example, FIGFONT(1,2) swaps the second and third items in the legend.
 %   
-%   FIGFONT(Item1, Item2) 将图例中两个元素互换。例如，FIGFONT(1, 2)将图例中第
+%   FIGLEGEND(Item1, Item2) 将图例中两个元素互换。例如，FIGFONT(1, 2)将图例中第
 %   一个和第二个元素互换。
-%   FIGFONT(Item1, Item2) Swap two items in the label. For example, 
-%   FIGFONT(1,2) swaps the first and second items in the legend.
+%   FIGLEGEND(Item1, Item2) Swap two items in the label. For example, 
+%   FIGLEGEND(1,2) swaps the first and second items in the legend.
 % 
 %   例：
 %         x = -pi:pi/10:pi;
