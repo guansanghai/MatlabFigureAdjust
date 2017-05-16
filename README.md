@@ -22,6 +22,12 @@ Adjust the tick labels.
 
 Adjust the color, line width, line style, marker and markersize of all the lines in the figure in one step.
 
+## figlegend.m
+
+选择图例显示内容，将图例重新排序。
+
+Select the items shown and reorder the items in the legend.
+
 ## figsize.m
 
 调整当前绘图大小。
