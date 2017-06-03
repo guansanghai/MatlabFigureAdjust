@@ -88,7 +88,7 @@ Marker = Style(ismember(Style,PermittedMarker));
 g = get(gca,'children');
 h = [];
 for temp = g
-    if isa(temp,'matlab.graphics.chart.primitive.Line')
+    if isa(temp,'matlab.graphics.chart.primitive.Line') || isa(temp,'matlab.graphics.chart.primitive.ErrorBar')
         h = [h temp];
     end
 end
